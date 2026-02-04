@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who Am I - Configurações</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="options.css">
+</head>
+
+<body>
+    <!-- Hero Header -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Configurações</h1>
+            <p>Ajuste as configurações de forma a melhor te agradar.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Add Form Card -->
+        <section class="form-card">
+            <h2>Adicione URLs</h2>
+            <form id="add-form" class="add-form">
+                <div class="form-field">
+                    <input type="text" id="urlPattern" placeholder="Adicione URL" required>
+                </div>
+                <div class="form-field">
+                    <input type="text" id="envName" placeholder="Nome do Ambiente" required>
+                </div>
+                <div class="form-field">
+                    <select id="indicationType" required>
+                        <option value="" disabled selected>Tipo de Indicação</option>
+                        <option value="borda-completa">Borda completa</option>
+                        <option value="somente-topo">Somente topo</option>
+                        <option value="balao">Balão</option>
+                    </select>
+                </div>
+                <div class="form-field color-field">
+                    <input type="color" id="envColor" value="#ef4444">
+                </div>
+                <div class="form-field">
+                    <input type="text" id="borderWidth" placeholder="Espessura da borda" value="5px">
+                </div>
+                <button type="submit" class="btn-add">Adicionar</button>
+            </form>
+        </section>
+
+        <!-- Environments Table -->
+        <section class="table-card">
+            <div class="table-wrapper">
+                <table id="env-table">
+                    <thead>
+                        <tr>
+                            <th>URL</th>
+                            <th>Ambiente</th>
+                            <th>Tipo</th>
+                            <th>Cor</th>
+                            <th>Espessura</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="env-tbody">
+                        <!-- Rows injected by JS -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div id="pagination" class="pagination">
+                <!-- Pagination buttons injected by JS -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="empty-state">
+                Nenhum ambiente cadastrado ainda.
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Menu</h4>
+                <a href="https://regivaldo.com.br" target="_blank">Portfolio</a>
+                <a href="https://www.linkedin.com/in/regivaldo-silva/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/regivaldo" target="_blank">GitHub</a>
+            </div>
+            <div class="footer-col">
+                <h4>Projetos</h4>
+                <a href="https://regivaldo.com.br/projetos/who-am-i" target="_blank">Who am I?</a>
+                <a href="https://regivaldo.com.br/aplicativos/o-stop-e" target="_blank">O Stop é</a>
+            </div>
+            <div class="footer-col">
+                <h4>Livros</h4>
+                <a href="https://www.amazon.com.br/dp/B00LCCX548" target="_blank">Viajança</a>
+                <a href="https://www.amazon.com.br/dp/B012UO8RHQ" target="_blank">Suicídio</a>
+                <a href="https://www.amazon.com.br/dp/B01I3L0PY8" target="_blank">Suicide</a>
+            </div>
+            <div class="footer-col">
+                <h4>Sites</h4>
+                <a href="https://regivaldo.com.br" target="_blank">Regivaldo Silva</a>
+                <a href="https://escoteiros.app" target="_blank">Escoteiros.app</a>
+                <a href="https://gemr.com.br" target="_blank">G. E. Marechal Rondon</a>
+                <a href="https://quizescoteiro.com.br" target="_blank">Quiz Escoteiro</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <a href="mailto:contato@regivaldo.com.br">contato@regivaldo.com.br</a>
+                <a href="https://regivaldo.com.br/contato" target="_blank">https://regivaldo.com.br/contato</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Desenvolvido por <a href="https://regivaldo.com.br" target="_blank">Regivaldo Silva</a></p>
+        </div>
+    </footer>
+
+    <script src="options.js"></script>
+</body>
+
+</html>
