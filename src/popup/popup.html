@@ -1,34 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Who Am I</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="popup.css">
 </head>
+
 <body>
-  <div class="container">
-    <header>
-      <h1>Who Am I?</h1>
-      <button id="settings-btn" aria-label="Settings">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-      </button>
+  <div class="popup-container">
+    <!-- Hero Header -->
+    <header class="popup-hero">
+      <div class="popup-hero-overlay"></div>
+      <div class="popup-hero-content">
+        <h1>Where am I?</h1>
+      </div>
     </header>
-    
-    <main>
-      <div id="status-card" class="status-card unknown">
-        <div class="status-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-help-circle"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+
+    <!-- View Mode -->
+    <main id="view-mode" class="popup-main">
+      <div class="popup-content">
+        <div class="content-header">
+          <span class="label">Você está em:</span>
+          <button id="edit-btn" class="edit-btn" aria-label="Editar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+            </svg>
+          </button>
         </div>
-        <h2 id="env-name">Unknown</h2>
-        <p id="current-url" class="url-text">Checking...</p>
+        <h2 id="env-name" class="env-name">Ambiente de Desenvolvimento</h2>
+        <div id="color-bar" class="color-bar"></div>
+        <div class="env-info">
+          <span id="indication-type">Borda Completa</span>
+          <span class="separator">•</span>
+          <span id="border-width">5 px</span>
+        </div>
       </div>
 
-      <button id="add-current-btn" class="action-btn">
-        Register This Site
-      </button>
+      <!-- Unknown state -->
+      <div id="unknown-state" class="unknown-state hidden">
+        <p class="label">Você está em:</p>
+        <h2 class="env-name unknown">Ambiente Desconhecido</h2>
+        <button id="register-btn" class="btn-primary">Registrar Este Site</button>
+      </div>
+    </main>
+
+    <!-- Edit Mode -->
+    <main id="edit-mode" class="popup-main hidden">
+      <div class="popup-content edit-content">
+        <p class="label">Você está em:</p>
+
+        <div class="form-group">
+          <input type="text" id="edit-url" class="form-input" placeholder="URL">
+        </div>
+
+        <div class="form-group">
+          <input type="text" id="edit-name" class="form-input" placeholder="Nome do Ambiente">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group flex-2">
+            <select id="edit-indication" class="form-input">
+              <option value="borda-completa">Borda completa</option>
+              <option value="somente-topo">Somente topo</option>
+              <option value="balao">Balão</option>
+            </select>
+          </div>
+          <div class="form-group flex-1">
+            <input type="text" id="edit-border-width" class="form-input" placeholder="5px">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="color-picker-container">
+            <input type="color" id="edit-color" class="color-picker-input" value="#b91c1c">
+            <div id="edit-color-bar" class="color-bar edit"></div>
+          </div>
+        </div>
+
+        <div class="button-row">
+          <button id="cancel-btn" class="btn-secondary">Cancelar</button>
+          <button id="save-btn" class="btn-primary">Salvar</button>
+        </div>
+      </div>
     </main>
   </div>
   <script src="popup.js"></script>
 </body>
+
 </html>
