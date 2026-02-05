@@ -38,11 +38,7 @@ async function updateBadge(tabId, url) {
     }
 
     if (match) {
-        // Set badge
-        // Use first 3-4 letters of Env name
-        let badgeText = match.name.slice(0, 4).toUpperCase();
-
-        chrome.action.setBadgeText({ text: badgeText, tabId });
+        // Set badge background color only (no text)
         chrome.action.setBadgeBackgroundColor({ color: match.color, tabId });
     }
 }

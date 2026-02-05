@@ -1,5 +1,5 @@
 :root {
-    --bg-dark: #1a2744;
+    --bg-dark: #011D34;
     --card-bg: #ffffff;
     --text-dark: #1f2937;
     --text-muted: #6b7280;
@@ -26,6 +26,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    padding: 16px;
 }
 
 /* Hero Header */
@@ -38,12 +39,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 16px;
 }
 
 .hero-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(135deg, rgba(26, 39, 68, 0.7), rgba(26, 39, 68, 0.5));
+    border-radius: 16px;
 }
 
 .hero-content {
@@ -344,6 +347,7 @@ td {
     color: var(--text-light);
     padding: 40px 20px 20px;
     margin-top: auto;
+    border-radius: 16px;
 }
 
 .footer-content {
